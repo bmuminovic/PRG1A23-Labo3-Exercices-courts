@@ -23,7 +23,7 @@ int lire_multiple_de(int n) {
     while (true) {
         cin >> lect;
 
-        if(!cin.fail()) {
+        if(cin.good()) {
             if(lect % n == 0) {
                 return lect;
             }
