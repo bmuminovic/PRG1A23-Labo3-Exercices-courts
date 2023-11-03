@@ -3,9 +3,22 @@
 using namespace std;
 
 // écrire la fonction plus_petite_lettre(str) qui retourne
-// le plus petite caractère (au sens du code ASCII) de la chaine
+// le plus petit caractère (au sens du code ASCII) de la chaine
 // str. Si cette lettre apparait plusieurs fois c'est la
 // dernière instance qui doit être retournée.
+
+char& plus_petite_lettre(string& s) {
+    int posSmallest;
+    char smallest = 127;
+    for(int i = 0; i < s.length(); ++i) {
+        if(s[i] <= smallest) {
+            posSmallest = i;
+            smallest = s[i];
+        }
+    }
+
+    return s[posSmallest];
+}
 
 int main() {
 
