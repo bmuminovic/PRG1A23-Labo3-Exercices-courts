@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -7,6 +9,36 @@ using namespace std;
 // Cette fonction doit fonctionner pour n positif ou nul et
 // pour b entre 2 et 36. Les chiffres de 10 à 35 utilisent
 // les lettres majuscules de A à Z.
+
+char convert_num_to_char(int num) {
+    return num + 55;
+}
+
+string en_base(int n, int b) {
+    if(n < 0 || (b < 2 || b > 36)) {
+        return "";
+    }
+    string r;
+    int a ;
+    char v;
+
+    if(n==0) {
+        return "0";
+    }
+
+    while(n != 0) {
+        a = n % b;
+        if(a > 9) {
+            v = a+55;
+            r += v;
+        } else {
+            r += to_string(a);
+        }
+        n /= b;
+    }
+    reverse(r.begin(), r.end());
+    return r;
+}
 
 int main() {
 
